@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 250,
+    "width": 100,
     "height": 200,
     "data": {"url": "https://raw.githubusercontent.com/anguyen-mpt/fit3179-datavis2/main/data/aus_all_scores.csv"},
     "mark": "bar",
