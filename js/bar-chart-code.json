@@ -1,0 +1,15 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 250,
+    "height": 200,
+    "data": {"url": "https://raw.githubusercontent.com/anguyen-mpt/fit3179-datavis2/main/data/aus_all_scores.csv"},
+    "mark": "bar",
+    "encoding": {
+      "x": {"aggregate": "sum", "field": "Proportion that are vulnerable", "title": "Proportion of children with vulnerable development (%)"},
+      "y": {"field": "Geography", "sort": "-x", "title": "States and Australia"},
+      "tooltip": 
+      {"field": "Proportion that are vulnerable", "type": "quantitative", "title": "Proportion of children with vulnerable development (%)"
+      },
+      "color": {"field": "Development domain"}
+    }
+  }
