@@ -1,0 +1,117 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 600,
+  "height": 400,
+  "title": "Social disadvantage and children social competence development in Victorian Local Government Areas",
+  "data": {
+    "url": "https://raw.githubusercontent.com/anguyen-mpt/fit3179-datavis2/main/data/bubble_plot_data.csv"
+  },
+  "params": [
+    {
+      "name": "Type_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Cities",
+          "Rural Cities",
+          "Shires"
+        ],
+        "labels": [
+          "Show All",
+          "Cities",
+          "Rural Cities",
+          "Shires"
+        ],
+        "name": "LGA Type Selection: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "Type_selection == null || datum.Type == Type_selection"}
+  ],
+  "encoding": {
+    "x": {
+      "field": "Developmentally vulnerable",
+      "type": "quantitative",
+      "title": "Proportion of children with vulnerable social competence development",
+      "axis": {"tickCount": 7}
+    },
+    "y": {
+      "field": "SEIFA Score",
+      "type": "quantitative",
+      "title": "Social disadvantage score",
+      "axis": {"tickCount": 8}
+    }
+  },
+  "layer": [
+    {
+      "mark": "circle",
+        "encoding": {
+        "size": {
+          "field": "Population",
+          "type": "quantitative", 
+          "scale": {
+            "type": "threshold",
+            "domain": [50000, 100000, 200000, 400000],
+            "range": [80, 150, 250, 350, 450] 
+          },
+            "legend": {"format": ".1s"}
+        },
+         "color": {
+          "field": "Type",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Shires",
+              "Cities",
+              "Rural Cities"
+            ],
+            "scheme": "category10"
+          }
+        },
+        "opacity": {"value" : 0.6},
+        "stroke": {"value": "black"},
+        "tooltip": [
+           {"field": "LGA", "type": "nominal", "title": "Local Government Area"},
+           {"field": "Population", "type": "quantitative", "title": "Population"},
+          {"field": "SEIFA Score", "type": "quantitative", "title": "Social disadvantage score"},
+          {"field": "Developmentally vulnerable", "type": "quantitative", "title": "Proportion of children with vulnerable development:"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": -12,
+        "fontSize": 11.5,
+        "fontStyle": "italic"
+},
+      "encoding": {
+        "text": {"field": "LGA", "type": "nominal"},
+        "color": {"value": "black"},
+        "opacity": {
+          "condition": {
+            "test": 
+            "datum['LGA'] == 'Gannawarra (S)' || datum['LGA'] == 'Central Goldfields (S)'",
+            "value": 1
+          },
+          "value": 0
+        },
+        "tooltip": [
+          {"field": "LGA", "type": "nominal", "title": "Local Government Area"},
+           {"field": "Population", "type": "quantitative", "format": ",.2r", "title": "Population"},
+          {"field": "SEIFA Score", "type": "quantitative", "format": ",.2r", "title": "Social disadvantage score"},
+          {"field": "Developmentally vulnerable", "type": "quantitative", "format": ",.2f", "title": "Proportion of children with vulnerable development (%)"
+}
+        ]
+      }
+    }
+  ]
+}
+      
+      
