@@ -1,8 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 450,
-  "height": 350,
-  "title": "Proportion of Victorian children with vulnerable social competence development by Local Government Area in 2021",
+  "width": "container",
+  "height": 300,
   "projection": {"type": "equirectangular"},
   "data": {
     "url": "https://raw.githubusercontent.com/anguyen-mpt/fit3179-datavis2/main/data/vic-lga-2019.json",
@@ -55,7 +54,6 @@
   ],
   "config": {
     "view": {"stroke": null},
-    "legend": {"labelFont": "Roboto", "titleFont": "Roboto"},
-    "title": {"font": "Roboto", "fontSize": 15, "fontWeight": 700}
+    "legend": {"labelFont": "Roboto", "titleFont": "Roboto"}
   }
 }
