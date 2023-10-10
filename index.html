@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>A Snapshot of Children Development in Victoria</title>
+  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+  <!-- Import vega-embed -->
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <!-- Import pure.css -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+    integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+  <!-- custom style -->
+  <style>
+    * {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+    }
+
+    h1 {
+      font-weight: 900;
+
+    }
+
+    body {
+      background-color: lightblue;
+    }
+
+    .page {
+      width: 800px;
+      background-color: white;
+      margin: auto;
+      padding: 70px;
+      padding-top: 35px;
+    }
+
+    .vis-container {
+      width: 100%;
+    }
+
+    .description h2,
+    h1 {
+      margin-top: 10px;
+    }
+
+    .description-right {
+      padding-left: 10px;
+    }
+
+    .description-left {
+      padding-right: 10px;
+    }
+
+    .pure-g {
+      margin-bottom: 25px;
+    }
+
+    .small-font {
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page">
+
+    <!-- Title and subtitle -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <h1 style="text-align:center;">Social Competency Development of Children in Victoria</h1>
+        <p>This webpage aims to provide inisghts into the social competency development of Victorian children. 
+          It uses data from the Australian Early Development Census and the Australian Bureau of Statistics.</p>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+<!-- Bar chart -->
+<div class="pure-g">
+  <div class="pure-u-1-2">
+    <div class="description description-right">
+      <h2>Children's social competency development across Australia</h2>
+      <p>In Australia, the proportion of children with vulnerable social competency development 
+        varies significantly by state.
+        For example, Northern Territory has the largest proportion of children with vulnerable 
+        social competency at 21.7%.
+        On the other hand, Western Australia has the lowest proportion at 7.6%. For Victoria, the 
+        figure is <b>9%</b>, which is not very high compared to other states. However, it is still worth examining. 
+      </p>
+    </div>
+  </div>
+  <div class="pure-u-1-2">
+    <div id="vis1" class="vis-container"></div>
+    <p><small> Notes: The unit in this figure is % as it refers to the proportion 
+      of children with vulnerable social competence development </small></p>
+  </div>
+</div>
+<!-- end pure grid group -->
+
+<!-- Line chart -->
+<div class="pure-g">
+  <div class="pure-u-1-2">
+    <div id="vis2" class="vis-container"></div>
+  </div>
+  <div class="pure-u-1-2">
+    <div class="description description-right">
+      <h2>Children's vulnerable development in Victoria by domain</h2>
+      <p>The figure on the right shows the vulnerable development of Victorian children by different domain.
+        Social competence remains the area where most children are vulnerable. By contrast, Victorian children
+        tend to perform well in their language development. However, more children have been doing badly in these
+        two domains recently.
+      </p>
+    </div>
+  </div>
+</div>
+<!-- end pure grid group -->
+
+<!-- Donut chart -->
+<div class="pure-g">
+  <div class="pure-u-1-2">
+    <div class="description description-right">
+      <h2>Social competence development of Victorian children in 2021</h2>
+      <p>Most children in Victoria are on the right track of their social competence development. 
+        However, there is still more than 20% of children at risk or vulnerable in their social competence.
+      </p>
+    </div>
+  </div>
+  <div class="pure-u-1-2">
+    <div id="vis3" class="vis-container"></div>
+  </div>
+</div>
+<!-- end pure grid group -->
+
+<!-- Map test-->
+<div class="pure-g">
+  <div class="pure-u-1-1">
+    <h2>Vulnerable social competency development of Victorian children by LGA</h2>
+    <div id="vis4" class="vis-container"></div>
+  </div>
+</div>
+<!-- end pure grid group -->
+
+
+    <!-- Commentary -->
+    <div class="pure-g">
+      <div class="pure-u-1-2">
+        <div class="description description-right">
+          <p>The health development score varies greatly across Victoria. More children in <b>regional 
+            LGAs</b> suffer from vulnerable social competence development than children in 
+            metropolitan LGAs. </p>
+        </div>
+      </div>
+      <div class="pure-u-1-2">
+        <p>There are about 10 LGAs that have high proportion of children with ulnerable social competence 
+          development. They include Swan Hill, Hindmarsh, Aarat, Central Goldfields, among many others.
+          . </p>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- Bubble plot -->
+    <div class="pure-g">
+      <div class="pure-u-1-2">
+        <div class="description description-right">
+          <h2>Social advantage of living areas and impacts on children's social competency development</h2>
+          <p>Index of Relative Socio-economic Disadvantage (IRSD) is a measures of relative disadvantage
+            of an area in Australia. It is developed by ABS. 
+            A low score indicates relatively greater disadvantage in general and vice versa.
+          </p>
+
+          <p>The bubble plot shows that there is a <b>negative correlation</b> between social advantage 
+            and social competence development of children. LGAs that have high IRSD score tend to have 
+            less children suffering from vulnerable social competence development.
+          </p>
+        </div>
+      </div>
+      <div class="pure-u-1-2">
+        <div id="vis5" class="vis-container"></div>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+    
+
+    <div class="pure-g">
+      <div class="pure-u-1-1 small-font">
+        <p style="text-align:center;"><i>This page is created by 
+          <a href="https://github.com/anguyen-mpt">Minh Phuong Trang 
+          (Ally) Nguyen</a>. It is part of the FIT3179 unit in Semester 2 2023.</i></p>
+      </div>
+    </div>
+  </div> <!-- end page -->
+
+  <script type="text/javascript">
+    var specVis1 = "./js/bar-chart-code.json";
+    var specVis2 = "./js/line-chart-code.json";
+    var specVis3 = "./js/donut-chart-code.json";
+    var specVis4 = "./js/hw-week9-code.json";
+    var specVis5 = "./js/bubble-plot-code.json";
+
+    vegaEmbed('#vis1', specVis1, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis2', specVis2, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis3', specVis3, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis4', specVis4, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis5', specVis5, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+  </script>
+</body>
+
+</html>
