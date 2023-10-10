@@ -1,0 +1,25 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container", 
+  "height": 300,
+  "data": {
+    "url": "https://raw.githubusercontent.com/anguyen-mpt/fit3179-datavis2/main/data/social_competence_all_states.csv"
+  },
+  "layer": [{
+    "mark": {"type": "arc", "innerRadius": 20, "stroke": "#fff", "tooltip": true}
+  },{
+    "mark": {"type": "text", "radiusOffset": 10},
+    "encoding": {
+      "text": {"field": "Proportion that are vulnerable", "type": "quantitative"}
+    }
+  }],
+  "encoding": {
+    "theta": {"field": "Proportion that are vulnerable", "type": "quantitative", "stack": true},
+    "radius": {"field": "Proportion that are vulnerable", "scale": {"type": "sqrt", "zero": true, "rangeMin": 20}},
+    "color": {"field": "State", "type": "nominal", "legend": true, "title": "State"}
+     },
+  "config": {
+    "view": {"stroke": null},
+    "legend": {"labelFont": "Roboto", "titleFont": "Roboto", "labelFontSize": 12}
+  }
+}
