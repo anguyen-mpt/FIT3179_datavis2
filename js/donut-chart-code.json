@@ -1,0 +1,22 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": "container", 
+    "height": 250,
+    "data": {
+      "values": [
+        {"category": "On track", "value": 77.8},
+        {"category": "At risk", "value": 13.2},
+        {"category": "Vulnerable", "value": 9}
+      ]
+    },
+    "mark": {"type": "arc", "innerRadius": 50, "tooltip": true},
+    "encoding": {
+      "theta": {"field": "value", "type": "quantitative", "title": "Proportion of children (%)"},
+      "color": {"field": "category", "type": "nominal", "title": "Development level"}
+    },
+  "config": {
+    "view": {"stroke": null},
+    "legend": {"labelFont": "Roboto", "titleFont": "Roboto", "labelFontSize": 12}
+    }
+  }
+
