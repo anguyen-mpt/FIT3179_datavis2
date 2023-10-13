@@ -1,34 +1,60 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 280,
-    "height": 340,
-    "data": {"url": "https://raw.githubusercontent.com/anguyen-mpt/fit3179-datavis2/main/data/Top_10_SEIFA.csv"},
-    "encoding": {
-      "y": {
-        "field": "LGA", 
-        "type": "nominal", 
-        "sort": "-x"},
-      "x": {
-        "field": "SEIFA Score", 
-        "type": "quantitative", 
-        "scale": {"domain": [0, 950]},
-        "title": "IRSD score"}
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 350,
+  "title": {"text": "Top 10 Victorian LGAs with the lowest IRSD score", 
+  "align": "center",
+  "fontSize": 11},
+  "data": {"url": "https://raw.githubusercontent.com/anguyen-mpt/fit3179-datavis2/main/data/Top_10_SEIFA.csv"},
+  "encoding": {
+    "y": {
+      "field": "LGA",
+      "type": "nominal",
+      "sort": "-x",
+      "axis": {
+        "domain": false,
+        "title": null,
+        "ticks": false,
+        "labelColor": "black"
+      }
     },
-    "layer": [{
-      "mark": "bar"
-    }, {
+    "x": {
+      "field": "SEIFA Score",
+      "type": "quantitative",
+      "title": "Social disadvantage score"
+    },
+    "color": {"value": "#1f77b4"}
+  },
+  "layer": [
+    {
       "mark": {
-        "type": "text",
-        "align": "left",
-        "baseline": "middle",
-        "dx": 3
+        "type": "rule",
+        "tooltip": true,
+        "strokeWidth": 2,
+        "opacity": 0.5
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "tooltip": true,
+        "size": 150
       },
       "encoding": {
-        "text": {
-          "field": "SEIFA Score", 
-          "type": "quantitative", 
-          "format": ".1f"}
+        "size": {
+          "field": "SEIFA Score",
+          "scale": {
+            "range": [100, 500]
+          },
+          "legend": null
+        },
+        "opacity": {
+          "field": "SEIFA Score",
+          "sort": "-x",
+          "legend": null
+        }
       }
-    }]
-  }
+    }
+  ]
+}
   
