@@ -3,6 +3,9 @@
   "width": "container",
   "height": 300,
   "projection": {"type": "equirectangular"},
+  "title": {"text": "Vulnerable social competence development of Victorian children by LGA 2021", 
+  "align": "center",
+  "fontSize": 11},
   "data": {
     "url": "https://raw.githubusercontent.com/anguyen-mpt/fit3179-datavis2/main/data/vic-lga-2019.json",
     "format": {"type": "topojson", "feature": "vic-lga-2019"}
