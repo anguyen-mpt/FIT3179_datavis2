@@ -2,28 +2,31 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container", 
   "height": 250,
+  "title": {"text": "Children vulnerable development in Victoria by domain", 
+  "align": "center",
+  "fontSize": 11},
   "data": {"url": "https://raw.githubusercontent.com/anguyen-mpt/fit3179-datavis2/main/data/vic_all_scores.csv"},
   "config": {
     "view": {"stroke": null},
-    "legend": {"labelFont": "Roboto", "titleFont": "Roboto", "labelFontSize": 12}
+    "legend": {"labelFont": "Roboto", "titleFont": "Roboto", "labelFontSize": 11}
   },
   "mark": {
     "type": "line",
-    "tooltip": true,
+     "tooltip": true,
     "point": {
       "filled": false,
       "fill": "white"
     }
   },
   "encoding": {
-    "x": {"timeUnit": "year", "field": "Year", "title": "Year"},
+    "x": {"timeUnit": "year", "field": "Year", "scale": {"domain": [2009, 2021]}, "title": "Year"},
     "y": {"aggregate":"mean", "field": "Proportion that are vulnerable", 
     "type": "quantitative", "title": "Proportion of children (%)"},
     "color": {
-      "field": "Development domain", 
+      "field": "Domain", 
       "type": "nominal",
       "legend": 
       {"labelExpr": "{'Physical health and wellbeing': 'Health', 'Social competence': 'Social competence', 'Emotional maturity': 'Emotion', 'Language and cognitive skills (school-based)': 'Language', 'Communication skills and general knowledge': 'Communication'}[datum.label]"}
+      }  
   }
   }
-}
