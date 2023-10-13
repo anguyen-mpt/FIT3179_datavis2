@@ -1,7 +1,10 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": "container", 
-    "height": 250,
+    "height": 200,
+    "title": {"text": "Social competence development of Victorian children 2021", 
+  "align": "center",
+  "fontSize": 11},
     "data": {
       "values": [
         {"category": "On track", "value": 77.8},
@@ -9,14 +12,18 @@
         {"category": "Vulnerable", "value": 9}
       ]
     },
-    "mark": {"type": "arc", "innerRadius": 50, "tooltip": true},
+    "mark": {"type": "arc", "innerRadius": 60, "tooltip": true},
     "encoding": {
       "theta": {"field": "value", "type": "quantitative", "title": "Proportion of children (%)"},
       "color": {"field": "category", "type": "nominal", "title": "Development level"}
     },
   "config": {
     "view": {"stroke": null},
-    "legend": {"labelFont": "Roboto", "titleFont": "Roboto", "labelFontSize": 12}
+    "legend": {
+        "labelFont": "Roboto", 
+        "titleFont": "Roboto", 
+        "labelFontSize": 12, 
+        "orient": "bottom", "layout": {"bottom": {"anchor": "middle"}}}
     }
   }
 
