@@ -1,7 +1,10 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 340,
+  "height": 300,
+  "title": {"text": "Social disadvantage and children's vulnerable social competence", 
+  "align": "center",
+  "fontSize": 11},
   "data": {
     "url": "https://raw.githubusercontent.com/anguyen-mpt/fit3179-datavis2/main/data/bubble_plot_data.csv"
   },
@@ -54,7 +57,7 @@
           "scale": {
             "type": "threshold",
             "domain": [50000, 100000, 200000, 400000],
-            "range": [80, 150, 250, 350, 450] 
+            "range": [80, 120, 240, 360, 480] 
           },
             "legend": {"format": ".1s"}
         },
@@ -87,7 +90,7 @@
         "align": "right",
         "baseline": "middle",
         "dx": -12,
-        "fontSize": 11.5,
+        "fontSize": 11,
         "fontStyle": "italic"
 },
       "encoding": {
