@@ -5,7 +5,7 @@
   <title>Social Competence Development of Children in Victoria</title>
   <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <!-- Import vega-embed -->
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
   <!-- Import pure.css -->
@@ -106,8 +106,8 @@
   </div>
   <div class="pure-u-1-2">
     <div id="vis1" class="vis-container"></div>
-    <p><small><i>Note:</i> The unit in this figure is % as it refers to the proportion 
-      of children with vulnerable social competence development </small></p>
+    <p><small><i>Note: The unit in this figure is % as it refers to the proportion 
+      of children with vulnerable social competence development </i></small></p>
   </div>
 </div>
 <!-- end pure grid group -->
@@ -122,8 +122,9 @@
       <h2>Children's vulnerable development in Victoria by domain</h2>
       <p>
         <b style="color: #2ca02c;"><i>Social competence remains the area where most Victorian children have been vulnerable in development for the last decade</b></i>. 
-        By contrast, they tend to perform well in their language development. However, more children have been doing badly in these
-        two domains recently.
+        
+        <p> By contrast, they tend to perform well in their language development. However, more children have been doing badly in these
+        two domains in recent years</p>.
       </p>
     </div>
   </div>
@@ -145,6 +146,25 @@
   </div>
   <div class="pure-u-1-2">
     <div id="vis3" class="vis-container"></div>
+  </div>
+</div>
+<!-- end pure grid group -->
+
+<!-- Bar chart 2 -->
+<div class="pure-g">
+  <div class="pure-u-1-2">
+    <div id="vis7" class="vis-container"></div>
+  </div>
+  <div class="pure-u-1-2">
+    <div class="description description-right">
+      <h2>Social competence of children in Greater Melbourne and regional areas</h2>
+      <p>
+        Deciding to live in metropolitan or rural areas can affect children's social competence development. 
+        
+        <p> From 2009 to 2021, more children in <b style="color: #ff7f0e;"><i> regional Victoria</b></i> 
+        suffer from vulnerable social competence than those in <b style="color: #1f77b4;"><i>Greater Melbourne</b></i></p>.
+      </p>
+    </div>
   </div>
 </div>
 <!-- end pure grid group -->
@@ -212,15 +232,17 @@
     <div class="pure-g">
       <div class="pure-u-1-2">
         <div class="description description-right">
-          <p>The bubble plot shows that there is a <b><i>negative correlation between social advantage and social competence 
-            development of children</b></i>. 
-            LGAs with high IRSD score tend to have less children suffering from vulnerable social competence development. </p>
+          <p>There is a <b><i>negative correlation between areas' social advantage 
+            and children's social competence</b></i>. 
+            
+            <p> LGAs with high IRSD score tend to have less children suffering from vulnerable social competence development. </p>
         </div>
       </div>
       <div class="pure-u-1-2">
         <p>The bar chart shows top 10 LGAs with the lowest IRSD scores, meaning they are the greatest disadvantage areas.  
-         Some of these LGAs do have high proportion of children with vulnerable social competence development,
-          as illustrated in the map.
+         
+         <p> <b> Some of these most disadvantaged LGAs do have high proportion of children with vulnerable social competence development</b>. This can be
+          checked with the above map.
            </p>
       </div>
     </div>
@@ -242,7 +264,8 @@
     var specVis3 = "./js/donut-chart-code.json";
     var specVis4 = "./js/hw-week9-code.json";
     var specVis5 = "./js/bubble-plot-code.json";
-    var specVis6 = "./js/bar-chart-code.json"
+    var specVis6 = "./js/bar-chart-code.json";
+    var specVis7 = "./js/bar-chart-2.json"
 
     vegaEmbed('#vis1', specVis1, { "actions": false }).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
@@ -265,6 +288,10 @@
     }).catch(console.error);
 
     vegaEmbed('#vis6', specVis6, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis7', specVis7, { "actions": false }).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 
